@@ -45,3 +45,50 @@ resource "local_sensitive_file" "private_key"{
     file_permission = "0600"
 }
 ```
+
+
+Once created and saved the `main.tf` file. Deploy the infraestruture with the next terraform  commands.
+
+```
+terraform init 
+```
+
+```
+terraform apply
+
+```
+
+**Expected Output** 
+
+```
+Terraform will perform the following actions:
+
+  # aws_key_pair.xfusion_kp will be created
+  + resource "aws_key_pair" "xfusion_kp" {
+      + key_name     = "xfusion-kp"
+      + key_type     = "rsa"
+      + public_key   = (known after apply)
+    }
+
+  # local_file.private_key_pem will be created
+  + resource "local_file" "private_key_pem" {
+      + content         = (sensitive value)
+      + filename        = "/home/bob/xfusion-kp.pem"
+      + file_permission = "0600"
+    }
+
+  # tls_private_key.xfusion_key will be created
+  + resource "tls_private_key" "xfusion_key" {
+      + algorithm   = "RSA"
+      + rsa_bits    = 4096
+    }
+
+Plan: 3 to add, 0 to change, 0 to destroy.
+
+Apply complete! Resources: 3 added, 0 changed, 0 destroyed.
+```
+   
+
+
+
+    
