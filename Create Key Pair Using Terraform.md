@@ -98,6 +98,6 @@ Apply complete! Resources: 3 added, 0 changed, 0 destroyed.
 ```
    
 
-
+In this case, an instance will be modified, but nginx will not be installed. It is due to the fact that User data scripts only run at first boot whereas the instance modification causes a reboot.
 
     
