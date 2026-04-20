@@ -52,7 +52,7 @@ If the `.pub` key is already created and we don´t need to create it with `tls_p
 into  `aws_key_pair` resource:
 
 ```
-public_key = file (/.ssh/<.pub key name>) # there is the .pub path file
+public_key = file (".ssh/<.pub key name>") # there is the .pub path file
 ```
 
 Once created and saved the `main.tf` file. Deploy the infraestruture with the next terraform  commands.
