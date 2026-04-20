@@ -49,7 +49,8 @@ resource "local_sensitive_file" "private_key"{
 **Notes**
 
 If the `.pub` key is already created and we don´t need to create it with `tls_private_key`
-into  `aws_key_pair` resource:
+
+Into  `aws_key_pair` resource:
 
 ```
 public_key = file (".ssh/<.pub key name>") # there is the .pub path file
