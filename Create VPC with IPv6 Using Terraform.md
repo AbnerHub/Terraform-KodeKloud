@@ -1,0 +1,29 @@
+
+
+## 📌 Tasks
+
+For this task, create a VPC named `datacenter-vpc` in the `us-east-1` region with the Amazon-provided IPv6 CIDR block using terraform.
+
+The Terraform working directory is `/home/bob/terraform`. Create the `main.tf` file (do not create a different `.tf` file) to accomplish this task.
+
+
+## 🚀 Solution Steps
+
+```
+resource "aws_vpc" "datcenter-vpc"{
+    cidr_block = "10.0.0.0/16"
+    assign_generated_ipv6_cidr_block = true
+    tags = {
+        Name = "ipv6"
+    }
+}
+```
+
+**Assign_generated_ipv6_cidr_block** Terraform code line is used to create an ipv6 cidr block, I show what Terraform documentation says exactly 
+
+`assign_generated_ipv6_cidr_block` - (Optional) Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. 
+You cannot specify the range of IP addresses, or the size of the CIDR block. Default is false
+
+## 🔍 links
+
+https://registry.terraform.io/providers/-/aws/6.8.0/docs/resources/vpc#ipv6_cidr_block-5
